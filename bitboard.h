@@ -231,7 +231,7 @@ inline Bitboard rook_attacks_bb(Square s, Bitboard blockers) {
   return RAttacks[RAttackIndex[s] +
                   (unsigned(int(b) * int(RMult[s]) ^
                             int(b >> 32) * int(RMult[s] >> 32))
-                   >> RShift[s])];
+                      >> RShift[s])];
 }
 
 inline Bitboard bishop_attacks_bb(Square s, Bitboard blockers) {
@@ -239,7 +239,7 @@ inline Bitboard bishop_attacks_bb(Square s, Bitboard blockers) {
   return BAttacks[BAttackIndex[s] +
                   (unsigned(int(b) * int(BMult[s]) ^
                             int(b >> 32) * int(BMult[s] >> 32))
-                   >> BShift[s])];
+                      >> BShift[s])];
 }
 
 #endif
@@ -301,8 +301,8 @@ inline Bitboard attack_span_mask(Color c, Square s) {
 /// either on a straight or on a diagonal line.
 
 inline bool squares_aligned(Square s1, Square s2, Square s3) {
-  return  (BetweenBB[s1][s2] | BetweenBB[s1][s3] | BetweenBB[s2][s3])
-        & ((1ULL << s1) | (1ULL << s2) | (1ULL << s3));
+  return (BetweenBB[s1][s2] | BetweenBB[s1][s3] | BetweenBB[s2][s3])
+         & ((1ULL << s1) | (1ULL << s2) | (1ULL << s3));
 }
 
 
@@ -327,7 +327,8 @@ inline Square pop_1st_bit(Bitboard* b) {
 #else // if !defined(USE_BSFQ)
 
 extern Square first_1(Bitboard b);
-extern Square pop_1st_bit(Bitboard* b);
+
+extern Square pop_1st_bit(Bitboard *b);
 
 #endif
 
@@ -337,6 +338,7 @@ extern Square pop_1st_bit(Bitboard* b);
 ////
 
 extern void print_bitboard(Bitboard b);
+
 extern void init_bitboards();
 
 

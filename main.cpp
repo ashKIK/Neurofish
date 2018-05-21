@@ -45,19 +45,20 @@
 
 using namespace std;
 
-extern bool execute_uci_command(const string& cmd);
-extern void benchmark(int argc, char* argv[]);
+extern bool execute_uci_command(const string &cmd);
+
+extern void benchmark(int argc, char *argv[]);
 
 ////
 //// Functions
 ////
 
-int main(int argc, char* argv[]) {
-
+int main(int argc, char *argv[]) {
+  
   // Disable IO buffering
   cout.rdbuf()->pubsetbuf(NULL, 0);
   cin.rdbuf()->pubsetbuf(NULL, 0);
-
+  
   // Startup initializations
   init_bitboards();
   init_uci_options();
@@ -71,39 +72,37 @@ int main(int argc, char* argv[]) {
 #ifdef USE_CALLGRIND
   CALLGRIND_START_INSTRUMENTATION;
 #endif
-
-  if (argc <= 1)
+  
+  if (argc <= 1) {
+    // Print copyright notice
+    cout << engine_name()
+         << " by Tord Romstad, Marco Costalba, Joona Kiiski, Andrey Kotlarski" << endl;
+    
+    if (CpuHasPOPCNT)
+      cout << "Good! CPU has hardware POPCNT." << endl;
+    
+    // Wait for a command from the user, and passes this command to
+    // execute_uci_command() and also intercepts EOF from stdin, by
+    // translating EOF to the "quit" command. This ensures that we
+    // exit gracefully if the GUI dies unexpectedly.
+    string cmd;
+    
+    do {
+      // Wait for a command from stdin
+      if (!getline(cin, cmd))
+        cmd = "quit";
+      
+    } while (execute_uci_command(cmd));
+  } else // Process command line arguments
   {
-      // Print copyright notice
-      cout << engine_name()
-           << " by Tord Romstad, Marco Costalba, Joona Kiiski, Andrey Kotlarski" << endl;
-
-      if (CpuHasPOPCNT)
-          cout << "Good! CPU has hardware POPCNT." << endl;
-
-      // Wait for a command from the user, and passes this command to
-      // execute_uci_command() and also intercepts EOF from stdin, by
-      // translating EOF to the "quit" command. This ensures that we
-      // exit gracefully if the GUI dies unexpectedly.
-      string cmd;
-
-      do {
-          // Wait for a command from stdin
-          if (!getline(cin, cmd))
-              cmd = "quit";
-
-      } while (execute_uci_command(cmd));
+    if (string(argv[1]) != "bench" || argc > 7)
+      cout << "Usage: neuroStock bench [hash size = 128] [threads = 1] "
+           << "[limit = 12] [fen positions file = default] "
+           << "[depth, time, perft or node limited = depth]" << endl;
+    else
+      benchmark(argc, argv);
   }
-  else // Process command line arguments
-  {
-      if (string(argv[1]) != "bench" || argc > 7)
-          cout << "Usage: neuroStock bench [hash size = 128] [threads = 1] "
-               << "[limit = 12] [fen positions file = default] "
-               << "[depth, time, perft or node limited = depth]" << endl;
-      else
-          benchmark(argc, argv);
-  }
-
+  
   exit_threads();
   quit_eval();
   return 0;

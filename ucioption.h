@@ -28,17 +28,22 @@
 class Option {
 public:
   Option() {} // To allow insertion in a std::map
-  Option(const char* defaultValue);
+  Option(const char *defaultValue);
+  
   Option(bool defaultValue, std::string type = "check");
+  
   Option(int defaultValue, int minValue, int maxValue);
-
-  void set_value(const std::string& value);
-  template<typename T> T value() const;
+  
+  void set_value(const std::string &value);
+  
+  template<typename T>
+  T value() const;
 
 private:
   friend void init_uci_options();
+  
   friend void print_uci_options();
-
+  
   std::string defaultValue, currentValue, type;
   size_t idx;
   int minValue, maxValue;
@@ -46,21 +51,21 @@ private:
 
 template<typename T>
 inline T Option::value() const {
-
+  
   assert(type == "spin");
   return T(atoi(currentValue.c_str()));
 }
 
 template<>
 inline std::string Option::value<std::string>() const {
-
+  
   assert(type == "string");
   return currentValue;
 }
 
 template<>
 inline bool Option::value<bool>() const {
-
+  
   assert(type == "check" || type == "button");
   return currentValue == "true";
 }
@@ -68,13 +73,15 @@ inline bool Option::value<bool>() const {
 
 // Custom comparator because UCI options should not be case sensitive
 struct CaseInsensitiveLess {
-  bool operator() (const std::string&, const std::string&) const;
+  bool operator()(const std::string &, const std::string &) const;
 };
 
-typedef std::map<std::string, Option, CaseInsensitiveLess> OptionsMap;
+typedef std::map <std::string, Option, CaseInsensitiveLess> OptionsMap;
 
 extern OptionsMap Options;
+
 extern void init_uci_options();
+
 extern void print_uci_options();
 
 #endif // !defined(UCIOPTION_H_INCLUDED)

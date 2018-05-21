@@ -64,81 +64,73 @@ struct MoveStack {
   int score;
 };
 
-inline bool operator<(const MoveStack& f, const MoveStack& s) { return f.score < s.score; }
+inline bool operator<(const MoveStack &f, const MoveStack &s) { return f.score < s.score; }
 
 // An helper insertion sort implementation, works with pointers and iterators
 template<typename T, typename K>
-inline void insertion_sort(K firstMove, K lastMove)
-{
-    T value;
-    K cur, p, d;
-
-    if (firstMove != lastMove)
-        for (cur = firstMove + 1; cur != lastMove; cur++)
-        {
-            p = d = cur;
-            value = *p--;
-            if (*p < value)
-            {
-                do *d = *p;
-                while (--d != firstMove && *--p < value);
-                *d = value;
-            }
-        }
+inline void insertion_sort(K firstMove, K lastMove) {
+  T value;
+  K cur, p, d;
+  
+  if (firstMove != lastMove)
+    for (cur = firstMove + 1; cur != lastMove; cur++) {
+      p = d = cur;
+      value = *p--;
+      if (*p < value) {
+        do *d = *p;
+        while (--d != firstMove && *--p < value);
+        *d = value;
+      }
+    }
 }
 
 // Our dedicated sort in range [firstMove, lastMove), first splits
 // positive scores from ramining then order seaprately the two sets.
 template<typename T>
-inline void sort_moves(T* firstMove, T* lastMove, T** lastPositive)
-{
-    T tmp;
-    T *p, *d;
-
-    d = lastMove;
-    p = firstMove - 1;
-
-    d->score = -1; // right guard
-
-    // Split positives vs non-positives
-    do {
-        while ((++p)->score > 0) {}
-
-        if (p != d)
-        {
-            while (--d != p && d->score <= 0) {}
-
-            tmp = *p;
-            *p = *d;
-            *d = tmp;
-        }
-
-    } while (p != d);
-
-    // Sort just positive scored moves, remaining only when we get there
-    insertion_sort<T, T*>(firstMove, p);
-    *lastPositive = p;
+inline void sort_moves(T *firstMove, T *lastMove, T **lastPositive) {
+  T tmp;
+  T *p, *d;
+  
+  d = lastMove;
+  p = firstMove - 1;
+  
+  d->score = -1; // right guard
+  
+  // Split positives vs non-positives
+  do {
+    while ((++p)->score > 0) {}
+    
+    if (p != d) {
+      while (--d != p && d->score <= 0) {}
+      
+      tmp = *p;
+      *p = *d;
+      *d = tmp;
+    }
+    
+  } while (p != d);
+  
+  // Sort just positive scored moves, remaining only when we get there
+  insertion_sort<T, T *>(firstMove, p);
+  *lastPositive = p;
 }
 
 // Picks up the best move in range [curMove, lastMove), one per cycle.
 // It is faster then sorting all the moves in advance when moves are few,
 // as normally are the possible captures. Note that is not a stable alghoritm.
 template<typename T>
-inline T pick_best(T* curMove, T* lastMove)
-{
-    T bestMove, tmp;
-
-    bestMove = *curMove;
-    while (++curMove != lastMove)
-    {
-        if (bestMove < *curMove)
-        {
-            tmp = *curMove;
-            *curMove = bestMove;
-            bestMove = tmp;
-        }
+inline T pick_best(T *curMove, T *lastMove) {
+  T bestMove, tmp;
+  
+  bestMove = *curMove;
+  while (++curMove != lastMove) {
+    if (bestMove < *curMove) {
+      tmp = *curMove;
+      *curMove = bestMove;
+      bestMove = tmp;
     }
-    return bestMove;
+  }
+  return bestMove;
 }
 
 ////
@@ -202,9 +194,12 @@ inline Move make_ep_move(Square from, Square to) {
 //// Prototypes
 ////
 
-extern std::ostream& operator<<(std::ostream& os, Move m);
-extern Move move_from_uci(const Position& pos, const std::string &str);
+extern std::ostream &operator<<(std::ostream &os, Move m);
+
+extern Move move_from_uci(const Position &pos, const std::string &str);
+
 extern const std::string move_to_uci(Move m, bool chess960);
+
 extern bool move_is_ok(Move m);
 
 

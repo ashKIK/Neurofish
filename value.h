@@ -26,7 +26,7 @@
 ////
 
 enum ValueType {
-  VALUE_TYPE_NONE  = 0,
+  VALUE_TYPE_NONE = 0,
   VALUE_TYPE_UPPER = 1,  // Upper bound
   VALUE_TYPE_LOWER = 2,  // Lower bound
   VALUE_TYPE_EXACT = VALUE_TYPE_UPPER | VALUE_TYPE_LOWER
@@ -34,12 +34,12 @@ enum ValueType {
 
 
 enum Value {
-  VALUE_ZERO      = 0,
-  VALUE_DRAW      = 0,
+  VALUE_ZERO = 0,
+  VALUE_DRAW = 0,
   VALUE_KNOWN_WIN = 15000,
-  VALUE_MATE      = 30000,
-  VALUE_INFINITE  = 30001,
-  VALUE_NONE      = 30002,
+  VALUE_MATE = 30000,
+  VALUE_INFINITE = 30001,
+  VALUE_NONE = 30002,
   VALUE_ENSURE_SIGNED = -1
 };
 
@@ -47,10 +47,10 @@ ENABLE_OPERATORS_ON(Value)
 
 
 enum ScaleFactor {
-  SCALE_FACTOR_ZERO   = 0,
+  SCALE_FACTOR_ZERO = 0,
   SCALE_FACTOR_NORMAL = 64,
-  SCALE_FACTOR_MAX    = 128,
-  SCALE_FACTOR_NONE   = 255
+  SCALE_FACTOR_MAX = 128,
+  SCALE_FACTOR_NONE = 255
 };
 
 
@@ -61,9 +61,9 @@ enum ScaleFactor {
 // Compiler is free to choose the enum type as long as can keep
 // its data, so ensure Score to be an integer type.
 enum Score {
-    SCORE_ZERO = 0,
-    SCORE_ENSURE_32_BITS_SIZE_P =  (1 << 16),
-    SCORE_ENSURE_32_BITS_SIZE_N = -(1 << 16)
+  SCORE_ZERO = 0,
+  SCORE_ENSURE_32_BITS_SIZE_P = (1 << 16),
+  SCORE_ENSURE_32_BITS_SIZE_N = -(1 << 16)
 };
 
 // Extracting the _signed_ lower and upper 16 bits it not so trivial
@@ -76,7 +76,9 @@ inline Value mg_value(Score s) { return Value(((int(s) + 32768) & ~0xffff) / 0x1
 #if defined(IS_64BIT) && (!defined(__GNUC__) || defined(__INTEL_COMPILER))
 inline Value eg_value(Score s) { return Value(int16_t(s & 0xffff)); }
 #else
-inline Value eg_value(Score s) { return Value((int)(unsigned(s) & 0x7fffu) - (int)(unsigned(s) & 0x8000u)); }
+
+inline Value eg_value(Score s) { return Value((int) (unsigned(s) & 0x7fffu) - (int) (unsigned(s) & 0x8000u)); }
+
 #endif
 
 inline Score make_score(int mg, int eg) { return Score((mg << 16) + eg); }
@@ -89,23 +91,32 @@ inline Score operator/(Score s, int i) { return make_score(mg_value(s) / i, eg_v
 inline Score operator*(Score s1, Score s2);
 
 // Rest of operators are standard:
-inline Score operator+ (const Score d1, const Score d2) { return Score(int(d1) + int(d2)); }
-inline Score operator- (const Score d1, const Score d2) { return Score(int(d1) - int(d2)); }
-inline Score operator* (int i, const Score d) {  return Score(i * int(d)); }
-inline Score operator* (const Score d, int i) {  return Score(int(d) * i); }
-inline Score operator- (const Score d) { return Score(-int(d)); }
-inline void operator+= (Score& d1, const Score d2) { d1 = d1 + d2; }
-inline void operator-= (Score& d1, const Score d2) { d1 = d1 - d2; }
-inline void operator*= (Score& d, int i) { d = Score(int(d) * i); }
-inline void operator/= (Score& d, int i) { d = Score(int(d) / i); }
+inline Score operator+(const Score d1, const Score d2) { return Score(int(d1) + int(d2)); }
+
+inline Score operator-(const Score d1, const Score d2) { return Score(int(d1) - int(d2)); }
+
+inline Score operator*(int i, const Score d) { return Score(i * int(d)); }
+
+inline Score operator*(const Score d, int i) { return Score(int(d) * i); }
+
+inline Score operator-(const Score d) { return Score(-int(d)); }
+
+inline void operator+=(Score &d1, const Score d2) { d1 = d1 + d2; }
+
+inline void operator-=(Score &d1, const Score d2) { d1 = d1 - d2; }
+
+inline void operator*=(Score &d, int i) { d = Score(int(d) * i); }
+
+inline void operator/=(Score &d, int i) { d = Score(int(d) / i); }
 
 
 ////
 //// Inline functions
 ////
 
-inline Value operator+ (Value v, int i) { return Value(int(v) + i); }
-inline Value operator- (Value v, int i) { return Value(int(v) - i); }
+inline Value operator+(Value v, int i) { return Value(int(v) + i); }
+
+inline Value operator-(Value v, int i) { return Value(int(v) - i); }
 
 
 inline Value value_mate_in(int ply) {

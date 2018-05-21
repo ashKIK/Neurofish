@@ -59,7 +59,7 @@ struct SearchStack {
   Value eval;
   Value evalMargin;
   bool skipNullMove;
-  SplitPoint* sp;
+  SplitPoint *sp;
 };
 
 
@@ -68,10 +68,14 @@ struct SearchStack {
 ////
 
 extern void init_search();
+
 extern void init_threads();
+
 extern void exit_threads();
-extern int perft(Position& pos, Depth depth);
-extern bool think(Position& pos, bool infinite, bool ponder, int time[], int increment[],
+
+extern int perft(Position &pos, Depth depth);
+
+extern bool think(Position &pos, bool infinite, bool ponder, int time[], int increment[],
                   int movesToGo, int maxDepth, int maxNodes, int maxTime, Move searchMoves[]);
 
 #endif // !defined(SEARCH_H_INCLUDED)

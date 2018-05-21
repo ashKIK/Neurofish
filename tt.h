@@ -56,23 +56,31 @@ class TTEntry {
 
 public:
   void save(uint32_t k, Value v, ValueType t, Depth d, Move m, int g, Value statV, Value kd) {
-
-      key32 = k;
-      data = (m & 0x1FFFF) | (t << 21) | (g << 23);
-      value16     = (int16_t)v;
-      depth16     = (int16_t)d;
-      staticValue = (int16_t)statV;
-      staticValueMargin  = (int16_t)kd;
+    
+    key32 = k;
+    data = (m & 0x1FFFF) | (t << 21) | (g << 23);
+    value16 = (int16_t) v;
+    depth16 = (int16_t) d;
+    staticValue = (int16_t) statV;
+    staticValueMargin = (int16_t) kd;
   }
+  
   void set_generation(int g) { data = move() | (type() << 21) | (g << 23); }
-
+  
   uint32_t key() const { return key32; }
+  
   Depth depth() const { return Depth(depth16); }
+  
   Move move() const { return Move(data & 0x1FFFF); }
+  
   Value value() const { return Value(value16); }
+  
   ValueType type() const { return ValueType((data >> 21) & 3); }
+  
   int generation() const { return data >> 23; }
+  
   Value static_value() const { return Value(staticValue); }
+  
   Value static_value_margin() const { return Value(staticValueMargin); }
 
 private:
@@ -102,24 +110,33 @@ struct TTCluster {
 /// and reading new ones.
 
 class TranspositionTable {
-
-  TranspositionTable(const TranspositionTable&);
-  TranspositionTable& operator=(const TranspositionTable&);
+  
+  TranspositionTable(const TranspositionTable &);
+  
+  TranspositionTable &operator=(const TranspositionTable &);
 
 public:
   TranspositionTable();
+  
   ~TranspositionTable();
+  
   void set_size(size_t mbSize);
+  
   void clear();
+  
   void store(const Key posKey, Value v, ValueType type, Depth d, Move m, Value statV, Value kingD);
-  TTEntry* retrieve(const Key posKey) const;
+  
+  TTEntry *retrieve(const Key posKey) const;
+  
   void new_search();
-  TTEntry* first_entry(const Key posKey) const;
-  void refresh(const TTEntry* tte) const;
+  
+  TTEntry *first_entry(const Key posKey) const;
+  
+  void refresh(const TTEntry *tte) const;
 
 private:
   size_t size;
-  TTCluster* entries;
+  TTCluster *entries;
   uint8_t generation; // To properly compare, size must be smaller then TT stored value
 };
 
@@ -130,18 +147,18 @@ extern TranspositionTable TT;
 /// entry of a cluster given a position. The lowest order bits of the key
 /// are used to get the index of the cluster.
 
-inline TTEntry* TranspositionTable::first_entry(const Key posKey) const {
-
-  return entries[((uint32_t)posKey) & (size - 1)].data;
+inline TTEntry *TranspositionTable::first_entry(const Key posKey) const {
+  
+  return entries[((uint32_t) posKey) & (size - 1)].data;
 }
 
 
 /// TranspositionTable::refresh updates the 'generation' value of the TTEntry
 /// to avoid aging. Normally called after a TT hit, before to return.
 
-inline void TranspositionTable::refresh(const TTEntry* tte) const {
-
-  const_cast<TTEntry*>(tte)->set_generation(generation);
+inline void TranspositionTable::refresh(const TTEntry *tte) const {
+  
+  const_cast<TTEntry *>(tte)->set_generation(generation);
 }
 
 #endif // !defined(TT_H_INCLUDED)

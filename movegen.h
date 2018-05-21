@@ -32,14 +32,21 @@
 //// Prototypes
 ////
 
-extern MoveStack* generate_captures(const Position& pos, MoveStack* mlist);
-extern MoveStack* generate_noncaptures(const Position& pos, MoveStack* mlist);
-extern MoveStack* generate_non_capture_checks(const Position& pos, MoveStack* mlist);
-extern MoveStack* generate_evasions(const Position& pos, MoveStack* mlist);
-extern MoveStack* generate_non_evasions(const Position& pos, MoveStack* mlist);
-extern MoveStack* generate_moves(const Position& pos, MoveStack* mlist, bool pseudoLegal = false);
-extern bool move_is_legal(const Position& pos, const Move m, Bitboard pinned);
-extern bool move_is_legal(const Position& pos, const Move m);
+extern MoveStack *generate_captures(const Position &pos, MoveStack *mlist);
+
+extern MoveStack *generate_noncaptures(const Position &pos, MoveStack *mlist);
+
+extern MoveStack *generate_non_capture_checks(const Position &pos, MoveStack *mlist);
+
+extern MoveStack *generate_evasions(const Position &pos, MoveStack *mlist);
+
+extern MoveStack *generate_non_evasions(const Position &pos, MoveStack *mlist);
+
+extern MoveStack *generate_moves(const Position &pos, MoveStack *mlist, bool pseudoLegal = false);
+
+extern bool move_is_legal(const Position &pos, const Move m, Bitboard pinned);
+
+extern bool move_is_legal(const Position &pos, const Move m);
 
 
 #endif // !defined(MOVEGEN_H_INCLUDED)

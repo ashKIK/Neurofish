@@ -46,23 +46,28 @@ const int MaterialTableSize = 1024;
 /// of 4, which will result in scores of absolute value less than one pawn.
 
 class MaterialInfo {
-
+  
   friend class MaterialInfoTable;
 
 public:
   Score material_value() const;
-  ScaleFactor scale_factor(const Position& pos, Color c) const;
+  
+  ScaleFactor scale_factor(const Position &pos, Color c) const;
+  
   int space_weight() const;
+  
   Phase game_phase() const;
+  
   bool specialized_eval_exists() const;
-  Value evaluate(const Position& pos) const;
+  
+  Value evaluate(const Position &pos) const;
 
 private:
   Key key;
   int16_t value;
   uint8_t factor[2];
-  EndgameEvaluationFunctionBase* evaluationFunction;
-  EndgameScalingFunctionBase* scalingFunction[2];
+  EndgameEvaluationFunctionBase *evaluationFunction;
+  EndgameScalingFunctionBase *scalingFunction[2];
   int spaceWeight;
   Phase gamePhase;
 };
@@ -74,20 +79,23 @@ private:
 class EndgameFunctions;
 
 class MaterialInfoTable {
-
-  MaterialInfoTable(const MaterialInfoTable&);
-  MaterialInfoTable& operator=(const MaterialInfoTable&);
+  
+  MaterialInfoTable(const MaterialInfoTable &);
+  
+  MaterialInfoTable &operator=(const MaterialInfoTable &);
 
 public:
   MaterialInfoTable();
+  
   ~MaterialInfoTable();
-  MaterialInfo* get_material_info(const Position& pos);
-
-  static Phase game_phase(const Position& pos);
+  
+  MaterialInfo *get_material_info(const Position &pos);
+  
+  static Phase game_phase(const Position &pos);
 
 private:
-  MaterialInfo* entries;
-  EndgameFunctions* funcs;
+  MaterialInfo *entries;
+  EndgameFunctions *funcs;
 };
 
 
@@ -100,7 +108,7 @@ private:
 /// evaluation that is independent from game phase.
 
 inline Score MaterialInfo::material_value() const {
-
+  
   return make_score(value, value);
 }
 
@@ -111,13 +119,12 @@ inline Score MaterialInfo::material_value() const {
 /// the position. For instance, in KBP vs K endgames, a scaling function
 /// which checks for draws with rook pawns and wrong-colored bishops.
 
-inline ScaleFactor MaterialInfo::scale_factor(const Position& pos, Color c) const {
-
-  if (scalingFunction[c] != NULL)
-  {
-      ScaleFactor sf = scalingFunction[c]->apply(pos);
-      if (sf != SCALE_FACTOR_NONE)
-          return sf;
+inline ScaleFactor MaterialInfo::scale_factor(const Position &pos, Color c) const {
+  
+  if (scalingFunction[c] != NULL) {
+    ScaleFactor sf = scalingFunction[c]->apply(pos);
+    if (sf != SCALE_FACTOR_NONE)
+      return sf;
   }
   return ScaleFactor(factor[c]);
 }
@@ -127,7 +134,7 @@ inline ScaleFactor MaterialInfo::scale_factor(const Position& pos, Color c) cons
 /// evaluation for this material configuration.
 
 inline int MaterialInfo::space_weight() const {
-
+  
   return spaceWeight;
 }
 
@@ -135,7 +142,7 @@ inline int MaterialInfo::space_weight() const {
 /// to this material configuration.
 
 inline Phase MaterialInfo::game_phase() const {
-
+  
   return gamePhase;
 }
 
@@ -145,7 +152,7 @@ inline Phase MaterialInfo::game_phase() const {
 /// or if the normal evaluation function should be used.
 
 inline bool MaterialInfo::specialized_eval_exists() const {
-
+  
   return evaluationFunction != NULL;
 }
 
@@ -154,8 +161,8 @@ inline bool MaterialInfo::specialized_eval_exists() const {
 /// to a given position object. It should only be called when
 /// specialized_eval_exists() returns 'true'.
 
-inline Value MaterialInfo::evaluate(const Position& pos) const {
-
+inline Value MaterialInfo::evaluate(const Position &pos) const {
+  
   return evaluationFunction->apply(pos);
 }
 

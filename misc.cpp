@@ -27,6 +27,7 @@
 #  include <sys/time.h>
 #  include <sys/types.h>
 #  include <unistd.h>
+
 #  if defined(__hpux)
 #     include <sys/pstat.h>
 #  endif
@@ -40,7 +41,9 @@
 #endif
 
 #if !defined(NO_PREFETCH)
+
 #  include <xmmintrin.h>
+
 #endif
 
 #include <cassert>
@@ -60,7 +63,7 @@ using namespace std;
 
 static const string EngineVersion = "2.0.1";
 static const string AppName = "neuroStock";
-static const string AppTag  = "";
+static const string AppTag = "";
 
 
 ////
@@ -79,52 +82,52 @@ bool dbg_show_hit_rate = false;
 ////
 
 void dbg_hit_on(bool b) {
-
-    assert(!dbg_show_mean);
-    dbg_show_hit_rate = true;
-    dbg_cnt0++;
-    if (b)
-        dbg_cnt1++;
-}
-
-void dbg_hit_on_c(bool c, bool b) {
-
-    if (c)
-        dbg_hit_on(b);
-}
-
-void dbg_before() {
-
-    assert(!dbg_show_mean);
-    dbg_show_hit_rate = true;
-    dbg_cnt0++;
-}
-
-void dbg_after() {
-
-    assert(!dbg_show_mean);
-    dbg_show_hit_rate = true;
+  
+  assert(!dbg_show_mean);
+  dbg_show_hit_rate = true;
+  dbg_cnt0++;
+  if (b)
     dbg_cnt1++;
 }
 
-void dbg_mean_of(int v) {
+void dbg_hit_on_c(bool c, bool b) {
+  
+  if (c)
+    dbg_hit_on(b);
+}
 
-    assert(!dbg_show_hit_rate);
-    dbg_show_mean = true;
-    dbg_cnt0++;
-    dbg_cnt1 += v;
+void dbg_before() {
+  
+  assert(!dbg_show_mean);
+  dbg_show_hit_rate = true;
+  dbg_cnt0++;
+}
+
+void dbg_after() {
+  
+  assert(!dbg_show_mean);
+  dbg_show_hit_rate = true;
+  dbg_cnt1++;
+}
+
+void dbg_mean_of(int v) {
+  
+  assert(!dbg_show_hit_rate);
+  dbg_show_mean = true;
+  dbg_cnt0++;
+  dbg_cnt1 += v;
 }
 
 void dbg_print_hit_rate() {
-
+  
   cout << "Total " << dbg_cnt0 << " Hit " << dbg_cnt1
-       << " hit rate (%) " << (dbg_cnt1*100)/(dbg_cnt0 ? dbg_cnt0 : 1) << endl;
+       << " hit rate (%) " << (dbg_cnt1 * 100) / (dbg_cnt0 ? dbg_cnt0 : 1) << endl;
 }
 
 void dbg_print_mean() {
-
+  
   cout << "Total " << dbg_cnt0 << " Mean "
-       << (float)dbg_cnt1 / (dbg_cnt0 ? dbg_cnt0 : 1) << endl;
+       << (float) dbg_cnt1 / (dbg_cnt0 ? dbg_cnt0 : 1) << endl;
 }
 
 
@@ -134,23 +137,23 @@ void dbg_print_mean() {
 /// on whether the constant EngineVersion (defined in misc.h) is empty.
 
 const string engine_name() {
-
+  
   const string months("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec");
   const string cpu64(CpuIs64Bit ? " 64bit" : "");
-
+  
   if (!EngineVersion.empty())
-      return AppName + " " + EngineVersion + cpu64;
-
+    return AppName + " " + EngineVersion + cpu64;
+  
   stringstream s, date(__DATE__); // From compiler, format is "Sep 21 2008"
   string month, day, year;
-
+  
   date >> month >> day >> year;
-
+  
   s << setfill('0') << AppName + " " + AppTag + " "
     << year.substr(2, 2) << setw(2)
     << (1 + months.find(month) / 4) << setw(2)
     << day << cpu64;
-
+  
   return s.str();
 }
 
@@ -161,13 +164,13 @@ const string engine_name() {
 int get_system_time() {
 
 #if defined(_MSC_VER)
-    struct _timeb t;
-    _ftime(&t);
-    return int(t.time*1000 + t.millitm);
+  struct _timeb t;
+  _ftime(&t);
+  return int(t.time*1000 + t.millitm);
 #else
-    struct timeval t;
-    gettimeofday(&t, NULL);
-    return t.tv_sec*1000 + t.tv_usec/1000;
+  struct timeval t;
+  gettimeofday(&t, NULL);
+  return t.tv_sec * 1000 + t.tv_usec / 1000;
 #endif
 }
 
@@ -189,9 +192,11 @@ int cpu_count() {
   return Min(psd.psd_proc_cnt, MAX_THREADS);
 }
 #  else
+
 int cpu_count() {
   return 1;
 }
+
 #  endif
 
 #else
@@ -209,17 +214,16 @@ int cpu_count() {
 
 #ifndef _WIN32
 
-int data_available()
-{
+int data_available() {
   fd_set readfds;
-  struct timeval  timeout;
-
+  struct timeval timeout;
+  
   FD_ZERO(&readfds);
   FD_SET(fileno(stdin), &readfds);
   timeout.tv_sec = 0; // Set to timeout immediately
   timeout.tv_usec = 0;
   select(16, &readfds, 0, 0, &timeout);
-
+  
   return (FD_ISSET(fileno(stdin), &readfds));
 }
 
@@ -274,16 +278,16 @@ int data_available()
 void prefetch(char*) {}
 #else
 
-void prefetch(char* addr) {
+void prefetch(char *addr) {
 
 #if defined(__INTEL_COMPILER) || defined(__ICL)
-   // This hack prevents prefetches to be optimized away by
-   // Intel compiler. Both MSVC and gcc seems not affected.
-   __asm__ ("");
+  // This hack prevents prefetches to be optimized away by
+  // Intel compiler. Both MSVC and gcc seems not affected.
+  __asm__ ("");
 #endif
-
+  
   _mm_prefetch(addr, _MM_HINT_T2);
-  _mm_prefetch(addr+64, _MM_HINT_T2); // 64 bytes ahead
+  _mm_prefetch(addr + 64, _MM_HINT_T2); // 64 bytes ahead
 }
 
 #endif

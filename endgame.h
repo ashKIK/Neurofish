@@ -34,30 +34,30 @@
 ////
 
 enum EndgameType {
-
-    // Evaluation functions
-    KXK,   // Generic "mate lone king" eval
-    KBNK,  // KBN vs K
-    KPK,   // KP vs K
-    KRKP,  // KR vs KP
-    KRKB,  // KR vs KB
-    KRKN,  // KR vs KN
-    KQKR,  // KQ vs KR
-    KBBKN, // KBB vs KN
-    KNNK,  // KNN vs K
-    KmmKm, // K and two minors vs K and one or two minors
-
-    // Scaling functions
-    KBPsK,   // KB+pawns vs K
-    KQKRPs,  // KQ vs KR+pawns
-    KRPKR,   // KRP vs KR
-    KRPPKRP, // KRPP vs KRP
-    KPsK,    // King and pawns vs king
-    KBPKB,   // KBP vs KB
-    KBPPKB,  // KBPP vs KB
-    KBPKN,   // KBP vs KN
-    KNPK,    // KNP vs K
-    KPKP     // KP vs KP
+  
+  // Evaluation functions
+      KXK,   // Generic "mate lone king" eval
+  KBNK,  // KBN vs K
+  KPK,   // KP vs K
+  KRKP,  // KR vs KP
+  KRKB,  // KR vs KB
+  KRKN,  // KR vs KN
+  KQKR,  // KQ vs KR
+  KBBKN, // KBB vs KN
+  KNNK,  // KNN vs K
+  KmmKm, // K and two minors vs K and one or two minors
+  
+  // Scaling functions
+      KBPsK,   // KB+pawns vs K
+  KQKRPs,  // KQ vs KR+pawns
+  KRPKR,   // KRP vs KR
+  KRPPKRP, // KRPP vs KRP
+  KPsK,    // King and pawns vs king
+  KBPKB,   // KBP vs KB
+  KBPPKB,  // KBPP vs KB
+  KBPKN,   // KBP vs KN
+  KNPK,    // KNP vs K
+  KPKP     // KP vs KP
 };
 
 /// Template abstract base class for all special endgame functions
@@ -66,8 +66,11 @@ template<typename T>
 class EndgameFunctionBase {
 public:
   EndgameFunctionBase(Color c) : strongerSide(c), weakerSide(opposite_color(c)) {}
+  
   virtual ~EndgameFunctionBase() {}
-  virtual T apply(const Position&) const = 0;
+  
+  virtual T apply(const Position &) const = 0;
+  
   Color color() const { return strongerSide; }
 
 protected:
@@ -83,15 +86,19 @@ typedef EndgameFunctionBase<ScaleFactor> EndgameScalingFunctionBase;
 template<EndgameType>
 struct EvaluationFunction : public EndgameEvaluationFunctionBase {
   typedef EndgameEvaluationFunctionBase Base;
-  explicit EvaluationFunction(Color c): EndgameEvaluationFunctionBase(c) {}
-  Value apply(const Position&) const;
+  
+  explicit EvaluationFunction(Color c) : EndgameEvaluationFunctionBase(c) {}
+  
+  Value apply(const Position &) const;
 };
 
 template<EndgameType>
 struct ScalingFunction : public EndgameScalingFunctionBase {
   typedef EndgameScalingFunctionBase Base;
+  
   explicit ScalingFunction(Color c) : EndgameScalingFunctionBase(c) {}
-  ScaleFactor apply(const Position&) const;
+  
+  ScaleFactor apply(const Position &) const;
 };
 
 

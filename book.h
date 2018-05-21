@@ -54,25 +54,40 @@ struct BookEntry {
 };
 
 class Book : private std::ifstream {
-  Book(const Book&); // just decleared..
-  Book& operator=(const Book&); // ..to avoid a warning
+  Book(const Book &); // just decleared..
+  Book &operator=(const Book &); // ..to avoid a warning
 public:
   Book();
+  
   ~Book();
-  void open(const std::string& fName);
+  
+  void open(const std::string &fName);
+  
   void close();
+  
   const std::string file_name();
-  Move get_move(const Position& pos, bool findBestMove);
+  
+  Move get_move(const Position &pos, bool findBestMove);
 
 private:
-  Book& operator>>(uint64_t& n) { n = read_integer(8); return *this; }
-  Book& operator>>(uint16_t& n) { n = (uint16_t)read_integer(2); return *this; }
-  void operator>>(BookEntry& e) { *this >> e.key >> e.move >> e.count >> e.n >> e.sum; }
-
+  Book &operator>>(uint64_t &n) {
+    n = read_integer(8);
+    return *this;
+  }
+  
+  Book &operator>>(uint16_t &n) {
+    n = (uint16_t) read_integer(2);
+    return *this;
+  }
+  
+  void operator>>(BookEntry &e) { *this >> e.key >> e.move >> e.count >> e.n >> e.sum; }
+  
   uint64_t read_integer(int size);
-  void read_entry(BookEntry& e, int n);
+  
+  void read_entry(BookEntry &e, int n);
+  
   int find_key(uint64_t key);
-
+  
   std::string fileName;
   int bookSize;
   RKISS RKiss;

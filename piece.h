@@ -47,6 +47,7 @@ enum Piece {
 };
 
 ENABLE_OPERATORS_ON(PieceType)
+
 ENABLE_OPERATORS_ON(Piece)
 
 
@@ -60,23 +61,23 @@ ENABLE_OPERATORS_ON(Piece)
 ///
 /// Values modified by Joona Kiiski
 
-const Value PawnValueMidgame   = Value(0x0C6);
-const Value PawnValueEndgame   = Value(0x102);
+const Value PawnValueMidgame = Value(0x0C6);
+const Value PawnValueEndgame = Value(0x102);
 const Value KnightValueMidgame = Value(0x331);
 const Value KnightValueEndgame = Value(0x34E);
 const Value BishopValueMidgame = Value(0x344);
 const Value BishopValueEndgame = Value(0x359);
-const Value RookValueMidgame   = Value(0x4F6);
-const Value RookValueEndgame   = Value(0x4FE);
-const Value QueenValueMidgame  = Value(0x9D9);
-const Value QueenValueEndgame  = Value(0x9FE);
+const Value RookValueMidgame = Value(0x4F6);
+const Value RookValueEndgame = Value(0x4FE);
+const Value QueenValueMidgame = Value(0x9D9);
+const Value QueenValueEndgame = Value(0x9FE);
 
 
 ////
 //// Inline functions
 ////
 
-inline PieceType type_of_piece(Piece p)  {
+inline PieceType type_of_piece(Piece p) {
   return PieceType(int(p) & 7);
 }
 
@@ -89,7 +90,7 @@ inline Piece piece_of_color_and_type(Color c, PieceType pt) {
 }
 
 inline SquareDelta pawn_push(Color c) {
-    return (c == WHITE ? DELTA_N : DELTA_S);
+  return (c == WHITE ? DELTA_N : DELTA_S);
 }
 
 inline bool piece_type_is_ok(PieceType pt) {

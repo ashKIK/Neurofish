@@ -35,15 +35,15 @@ TranspositionTable TT;
 ////
 
 TranspositionTable::TranspositionTable() {
-
+  
   size = 0;
   entries = 0;
   generation = 0;
 }
 
 TranspositionTable::~TranspositionTable() {
-
-  delete [] entries;
+  
+  delete[] entries;
 }
 
 
@@ -51,28 +51,26 @@ TranspositionTable::~TranspositionTable() {
 /// measured in megabytes.
 
 void TranspositionTable::set_size(size_t mbSize) {
-
+  
   size_t newSize = 1024;
-
+  
   // Transposition table consists of clusters and
   // each cluster consists of ClusterSize number of TTEntries.
   // Each non-empty entry contains information of exactly one position.
   // newSize is the number of clusters we are going to allocate.
   while ((2 * newSize) * sizeof(TTCluster) <= (mbSize << 20))
-      newSize *= 2;
-
-  if (newSize != size)
-  {
-      size = newSize;
-      delete [] entries;
-      entries = new TTCluster[size];
-      if (!entries)
-      {
-          std::cerr << "Failed to allocate " << mbSize
-                    << " MB for transposition table." << std::endl;
-          exit(EXIT_FAILURE);
-      }
-      clear();
+    newSize *= 2;
+  
+  if (newSize != size) {
+    size = newSize;
+    delete[] entries;
+    entries = new TTCluster[size];
+    if (!entries) {
+      std::cerr << "Failed to allocate " << mbSize
+                << " MB for transposition table." << std::endl;
+      exit(EXIT_FAILURE);
+    }
+    clear();
   }
 }
 
@@ -83,7 +81,7 @@ void TranspositionTable::set_size(size_t mbSize) {
 /// Perhaps we should also clear it when the "ucinewgame" command is received?
 
 void TranspositionTable::clear() {
-
+  
   memset(entries, 0, size * sizeof(TTCluster));
 }
 
@@ -99,33 +97,32 @@ void TranspositionTable::clear() {
 /// is bigger than the depth of t2.
 
 void TranspositionTable::store(const Key posKey, Value v, ValueType t, Depth d, Move m, Value statV, Value kingD) {
-
+  
   int c1, c2, c3;
   TTEntry *tte, *replace;
   uint32_t posKey32 = posKey >> 32; // Use the high 32 bits as key
-
+  
   tte = replace = first_entry(posKey);
-  for (int i = 0; i < ClusterSize; i++, tte++)
-  {
-      if (!tte->key() || tte->key() == posKey32) // empty or overwrite old
-      {
-          // Preserve any existing ttMove
-          if (m == MOVE_NONE)
-              m = tte->move();
-
-          tte->save(posKey32, v, t, d, m, generation, statV, kingD);
-          return;
-      }
-
-      if (i == 0)  // Replacing first entry is default and already set before entering for-loop
-          continue;
-
-      c1 = (replace->generation() == generation ?  2 : 0);
-      c2 = (tte->generation() == generation ? -2 : 0);
-      c3 = (tte->depth() < replace->depth() ?  1 : 0);
-
-      if (c1 + c2 + c3 > 0)
-          replace = tte;
+  for (int i = 0; i < ClusterSize; i++, tte++) {
+    if (!tte->key() || tte->key() == posKey32) // empty or overwrite old
+    {
+      // Preserve any existing ttMove
+      if (m == MOVE_NONE)
+        m = tte->move();
+      
+      tte->save(posKey32, v, t, d, m, generation, statV, kingD);
+      return;
+    }
+    
+    if (i == 0)  // Replacing first entry is default and already set before entering for-loop
+      continue;
+    
+    c1 = (replace->generation() == generation ? 2 : 0);
+    c2 = (tte->generation() == generation ? -2 : 0);
+    c3 = (tte->depth() < replace->depth() ? 1 : 0);
+    
+    if (c1 + c2 + c3 > 0)
+      replace = tte;
   }
   replace->save(posKey32, v, t, d, m, generation, statV, kingD);
 }
@@ -135,15 +132,15 @@ void TranspositionTable::store(const Key posKey, Value v, ValueType t, Depth d, 
 /// transposition table. Returns a pointer to the TTEntry or NULL
 /// if position is not found.
 
-TTEntry* TranspositionTable::retrieve(const Key posKey) const {
-
+TTEntry *TranspositionTable::retrieve(const Key posKey) const {
+  
   uint32_t posKey32 = posKey >> 32;
-  TTEntry* tte = first_entry(posKey);
-
+  TTEntry *tte = first_entry(posKey);
+  
   for (int i = 0; i < ClusterSize; i++, tte++)
-      if (tte->key() == posKey32)
-          return tte;
-
+    if (tte->key() == posKey32)
+      return tte;
+  
   return NULL;
 }
 

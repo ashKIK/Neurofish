@@ -36,7 +36,7 @@ typedef pthread_cond_t WaitCondition;
 #  define cond_destroy(x) pthread_cond_destroy(x)
 #  define cond_init(x) pthread_cond_init(x, NULL)
 #  define cond_signal(x) pthread_cond_signal(x)
-#  define cond_wait(x,y) pthread_cond_wait(x,y)
+#  define cond_wait(x, y) pthread_cond_wait(x,y)
 
 #else
 

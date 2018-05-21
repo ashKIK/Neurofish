@@ -47,10 +47,10 @@ const int MAX_ACTIVE_SPLIT_POINTS = 8;
 ////
 
 struct SplitPoint {
-
+  
   // Const data after splitPoint has been setup
-  SplitPoint* parent;
-  const Position* pos;
+  SplitPoint *parent;
+  const Position *pos;
   Depth depth;
   bool pvNode, mateThreat;
   Value beta;
@@ -58,11 +58,11 @@ struct SplitPoint {
   int master;
   Move threatMove;
   SearchStack sstack[MAX_THREADS][PLY_MAX_PLUS_2];
-
+  
   // Const pointers to shared data
-  MovePicker* mp;
-  SearchStack* parentSstack;
-
+  MovePicker *mp;
+  SearchStack *parentSstack;
+  
   // Shared data
   Lock lock;
   volatile int64_t nodes;
@@ -75,8 +75,7 @@ struct SplitPoint {
 
 // ThreadState type is used to represent thread's current state
 
-enum ThreadState
-{
+enum ThreadState {
   THREAD_INITIALIZING,  // thread is initializing itself
   THREAD_SEARCHING,     // thread is performing work
   THREAD_AVAILABLE,     // thread is waiting for work
@@ -87,7 +86,7 @@ enum ThreadState
 
 struct Thread {
   volatile ThreadState state;
-  SplitPoint* volatile splitPoint;
+  SplitPoint *volatile splitPoint;
   volatile int activeSplitPoints;
   SplitPoint splitPoints[MAX_ACTIVE_SPLIT_POINTS];
 };

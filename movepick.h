@@ -45,26 +45,32 @@ struct SearchStack;
 /// attempts to return the moves which are most likely to be strongest first.
 
 class MovePicker {
-
-  MovePicker& operator=(const MovePicker&); // silence a warning under MSVC
+  
+  MovePicker &operator=(const MovePicker &); // silence a warning under MSVC
 
 public:
-  MovePicker(const Position& p, Move ttm, Depth d, const History& h, SearchStack* ss = NULL, Value beta = -VALUE_INFINITE);
+  MovePicker(const Position &p, Move ttm, Depth d, const History &h, SearchStack *ss = NULL,
+             Value beta = -VALUE_INFINITE);
+  
   Move get_next_move();
+  
   int number_of_evasions() const;
 
 private:
   void score_captures();
+  
   void score_noncaptures();
+  
   void score_evasions();
+  
   void go_next_phase();
-
-  const Position& pos;
-  const History& H;
+  
+  const Position &pos;
+  const History &H;
   Bitboard pinned;
   MoveStack ttMoves[2], killers[2];
   int badCaptureThreshold, phase;
-  const uint8_t* phasePtr;
+  const uint8_t *phasePtr;
   MoveStack *curMove, *lastMove, *lastGoodNonCapture, *badCaptures;
   MoveStack moves[MOVES_MAX];
 };

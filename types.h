@@ -111,10 +111,11 @@ inline void __cpuid(int CPUInfo[4], int InfoType)
                   : "0" (*eax), "2" (*ecx));
 }
 #else
-inline void __cpuid(int CPUInfo[4], int)
-{
-   CPUInfo[0] = CPUInfo[1] = CPUInfo[2] = CPUInfo[3] = 0;
+
+inline void __cpuid(int CPUInfo[4], int) {
+  CPUInfo[0] = CPUInfo[1] = CPUInfo[2] = CPUInfo[3] = 0;
 }
+
 #endif
 
 // Operators used by enum types like Depth, Piece, Square and so on.

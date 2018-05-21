@@ -27,10 +27,13 @@
 
 class TimeManager {
 public:
-
+  
   void init(int myTime, int myInc, int movesToGo, int currentPly);
+  
   void pv_instability(int curChanges, int prevChanges);
+  
   int available_time() const { return optimumSearchTime + unstablePVExtraTime; }
+  
   int maximum_time() const { return maximumSearchTime; }
 
 private:

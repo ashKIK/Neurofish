@@ -44,10 +44,15 @@
 ////
 
 extern const std::string engine_name();
+
 extern int get_system_time();
+
 extern int cpu_count();
+
 extern int data_available();
-extern void prefetch(char* addr);
+
+extern void prefetch(char *addr);
+
 extern void prefetchPawn(Key, int);
 
 
@@ -59,11 +64,17 @@ extern bool dbg_show_mean;
 extern bool dbg_show_hit_rate;
 
 extern void dbg_hit_on(bool b);
+
 extern void dbg_hit_on_c(bool c, bool b);
+
 extern void dbg_before();
+
 extern void dbg_after();
+
 extern void dbg_mean_of(int v);
+
 extern void dbg_print_hit_rate();
+
 extern void dbg_print_mean();
 
 #endif // !defined(MISC_H_INCLUDED)

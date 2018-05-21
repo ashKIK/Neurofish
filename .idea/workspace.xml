@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="false">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="957acce8-ad43-4be9-826c-46ba41a8cd5e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmark.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/benchmark.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitbase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bitbase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitboard.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bitboard.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/bitboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcount.h" beforeDir="false" afterPath="$PROJECT_DIR$/bitcount.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/book.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book.h" beforeDir="false" afterPath="$PROJECT_DIR$/book.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bpn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bpn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bpn.h" beforeDir="false" afterPath="$PROJECT_DIR$/bpn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bpnlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bpnlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bpnlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/bpnlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/depth.h" beforeDir="false" afterPath="$PROJECT_DIR$/depth.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/endgame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/endgame.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/endgame.h" beforeDir="false" afterPath="$PROJECT_DIR$/endgame.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluate.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/evaluate.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluate.h" beforeDir="false" afterPath="$PROJECT_DIR$/evaluate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/history.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/history.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lock.h" beforeDir="false" afterPath="$PROJECT_DIR$/lock.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/material.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/material.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/material.h" beforeDir="false" afterPath="$PROJECT_DIR$/material.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/misc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc.h" beforeDir="false" afterPath="$PROJECT_DIR$/misc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/move.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.h" beforeDir="false" afterPath="$PROJECT_DIR$/move.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movegen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/movegen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movegen.h" beforeDir="false" afterPath="$PROJECT_DIR$/movegen.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movepick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/movepick.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movepick.h" beforeDir="false" afterPath="$PROJECT_DIR$/movepick.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pawns.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/pawns.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pawns.h" beforeDir="false" afterPath="$PROJECT_DIR$/pawns.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piece.h" beforeDir="false" afterPath="$PROJECT_DIR$/piece.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/position.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/position.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/position.h" beforeDir="false" afterPath="$PROJECT_DIR$/position.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psqtab.h" beforeDir="false" afterPath="$PROJECT_DIR$/psqtab.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rkiss.h" beforeDir="false" afterPath="$PROJECT_DIR$/rkiss.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/san.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/san.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/san.h" beforeDir="false" afterPath="$PROJECT_DIR$/san.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/search.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.h" beforeDir="false" afterPath="$PROJECT_DIR$/search.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/square.h" beforeDir="false" afterPath="$PROJECT_DIR$/square.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/thread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/timeman.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/timeman.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/timeman.h" beforeDir="false" afterPath="$PROJECT_DIR$/timeman.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tt.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tt.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tt.h" beforeDir="false" afterPath="$PROJECT_DIR$/tt.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uci.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/uci.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ucioption.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ucioption.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ucioption.h" beforeDir="false" afterPath="$PROJECT_DIR$/ucioption.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/value.h" beforeDir="false" afterPath="$PROJECT_DIR$/value.h" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="benchmark.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/benchmark.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-18">
+              <caret line="135" column="3" selection-start-line="135" selection-start-column="3" selection-end-line="135" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="movepick.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/movepick.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="163" column="4" lean-forward="true" selection-start-line="163" selection-start-column="4" selection-end-line="163" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/benchmark.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="34" />
+    <option name="width" value="1920" />
+    <option name="height" value="1046" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Neurofish" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Neurofish" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="957acce8-ad43-4be9-826c-46ba41a8cd5e" name="Default" comment="" />
+      <created>1526896204246</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1526896204246</updated>
+      <workItem from="1526896205769" duration="252000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="252000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="34" width="1920" height="1046" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/benchmark.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="135" column="3" selection-start-line="135" selection-start-column="3" selection-end-line="135" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movepick.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="163" column="4" lean-forward="true" selection-start-line="163" selection-start-column="4" selection-end-line="163" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

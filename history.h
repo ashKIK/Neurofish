@@ -46,11 +46,17 @@ class History {
 
 public:
   History();
+  
   void clear();
+  
   void success(Piece p, Square to, Depth d);
+  
   void failure(Piece p, Square to, Depth d);
+  
   int value(Piece p, Square to) const;
+  
   void set_gain(Piece p, Square to, Value delta);
+  
   Value gain(Piece p, Square to) const;
 
 private:

@@ -25,11 +25,11 @@
 #include "types.h"
 
 enum BitCountType {
-    CNT64,
-    CNT64_MAX15,
-    CNT32,
-    CNT32_MAX15,
-    CNT_POPCNT
+  CNT64,
+  CNT64_MAX15,
+  CNT32,
+  CNT32_MAX15,
+  CNT_POPCNT
 };
 
 /// count_1s() counts the number of nonzero bits in a bitboard.
@@ -37,21 +37,22 @@ enum BitCountType {
 /// is 32 or 64 bits, and to the maximum number of nonzero bits.
 /// We also support hardware popcnt instruction. See Readme.txt
 /// on how to pgo compile with popcnt support.
-template<BitCountType> inline int count_1s(Bitboard);
+template<BitCountType>
+inline int count_1s(Bitboard);
 
 template<>
 inline int count_1s<CNT64>(Bitboard b) {
-  b -= ((b>>1) & 0x5555555555555555ULL);
-  b = ((b>>2) & 0x3333333333333333ULL) + (b & 0x3333333333333333ULL);
-  b = ((b>>4) + b) & 0x0F0F0F0F0F0F0F0FULL;
+  b -= ((b >> 1) & 0x5555555555555555ULL);
+  b = ((b >> 2) & 0x3333333333333333ULL) + (b & 0x3333333333333333ULL);
+  b = ((b >> 4) + b) & 0x0F0F0F0F0F0F0F0FULL;
   b *= 0x0101010101010101ULL;
   return int(b >> 56);
 }
 
 template<>
 inline int count_1s<CNT64_MAX15>(Bitboard b) {
-  b -= (b>>1) & 0x5555555555555555ULL;
-  b = ((b>>2) & 0x3333333333333333ULL) + (b & 0x3333333333333333ULL);
+  b -= (b >> 1) & 0x5555555555555555ULL;
+  b = ((b >> 2) & 0x3333333333333333ULL) + (b & 0x3333333333333333ULL);
   b *= 0x1111111111111111ULL;
   return int(b >> 60);
 }
@@ -97,7 +98,7 @@ inline int count_1s<CNT_POPCNT>(Bitboard b) {
 
 /// cpu_has_popcnt() detects support for popcnt instruction at runtime
 inline bool cpu_has_popcnt() {
-
+  
   int CPUInfo[4] = {-1};
   __cpuid(CPUInfo, 0x00000001);
   return (CPUInfo[2] >> 23) & 1;

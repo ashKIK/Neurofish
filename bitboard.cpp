@@ -97,120 +97,120 @@ const int RShift[64] = {
 #else // if !defined(IS_64BIT)
 
 const uint64_t BMult[64] = {
-  0x54142844c6a22981ULL, 0x710358a6ea25c19eULL, 0x704f746d63a4a8dcULL,
-  0xbfed1a0b80f838c5ULL, 0x90561d5631e62110ULL, 0x2804260376e60944ULL,
-  0x84a656409aa76871ULL, 0xf0267f64c28b6197ULL, 0x70764ebb762f0585ULL,
-  0x92aa09e0cfe161deULL, 0x41ee1f6bb266f60eULL, 0xddcbf04f6039c444ULL,
-  0x5a3fab7bac0d988aULL, 0xd3727877fa4eaa03ULL, 0xd988402d868ddaaeULL,
-  0x812b291afa075c7cULL, 0x94faf987b685a932ULL, 0x3ed867d8470d08dbULL,
-  0x92517660b8901de8ULL, 0x2d97e43e058814b4ULL, 0x880a10c220b25582ULL,
-  0xc7c6520d1f1a0477ULL, 0xdbfc7fbcd7656aa6ULL, 0x78b1b9bfb1a2b84fULL,
-  0x2f20037f112a0bc1ULL, 0x657171ea2269a916ULL, 0xc08302b07142210eULL,
-  0x880a4403064080bULL, 0x3602420842208c00ULL, 0x852800dc7e0b6602ULL,
-  0x595a3fbbaa0f03b2ULL, 0x9f01411558159d5eULL, 0x2b4a4a5f88b394f2ULL,
-  0x4afcbffc292dd03aULL, 0x4a4094a3b3f10522ULL, 0xb06f00b491f30048ULL,
-  0xd5b3820280d77004ULL, 0x8b2e01e7c8e57a75ULL, 0x2d342794e886c2e6ULL,
-  0xc302c410cde21461ULL, 0x111f426f1379c274ULL, 0xe0569220abb31588ULL,
-  0x5026d3064d453324ULL, 0xe2076040c343cd8aULL, 0x93efd1e1738021eeULL,
-  0xb680804bed143132ULL, 0x44e361b21986944cULL, 0x44c60170ef5c598cULL,
-  0xf4da475c195c9c94ULL, 0xa3afbb5f72060b1dULL, 0xbc75f410e41c4ffcULL,
-  0xb51c099390520922ULL, 0x902c011f8f8ec368ULL, 0x950b56b3d6f5490aULL,
-  0x3909e0635bf202d0ULL, 0x5744f90206ec10ccULL, 0xdc59fd76317abbc1ULL,
-  0x881c7c67fcbfc4f6ULL, 0x47ca41e7e440d423ULL, 0xeb0c88112048d004ULL,
-  0x51c60e04359aef1aULL, 0x1aa1fe0e957a5554ULL, 0xdd9448db4f5e3104ULL,
-  0xdc01f6dca4bebbdcULL,
+    0x54142844c6a22981ULL, 0x710358a6ea25c19eULL, 0x704f746d63a4a8dcULL,
+    0xbfed1a0b80f838c5ULL, 0x90561d5631e62110ULL, 0x2804260376e60944ULL,
+    0x84a656409aa76871ULL, 0xf0267f64c28b6197ULL, 0x70764ebb762f0585ULL,
+    0x92aa09e0cfe161deULL, 0x41ee1f6bb266f60eULL, 0xddcbf04f6039c444ULL,
+    0x5a3fab7bac0d988aULL, 0xd3727877fa4eaa03ULL, 0xd988402d868ddaaeULL,
+    0x812b291afa075c7cULL, 0x94faf987b685a932ULL, 0x3ed867d8470d08dbULL,
+    0x92517660b8901de8ULL, 0x2d97e43e058814b4ULL, 0x880a10c220b25582ULL,
+    0xc7c6520d1f1a0477ULL, 0xdbfc7fbcd7656aa6ULL, 0x78b1b9bfb1a2b84fULL,
+    0x2f20037f112a0bc1ULL, 0x657171ea2269a916ULL, 0xc08302b07142210eULL,
+    0x880a4403064080bULL, 0x3602420842208c00ULL, 0x852800dc7e0b6602ULL,
+    0x595a3fbbaa0f03b2ULL, 0x9f01411558159d5eULL, 0x2b4a4a5f88b394f2ULL,
+    0x4afcbffc292dd03aULL, 0x4a4094a3b3f10522ULL, 0xb06f00b491f30048ULL,
+    0xd5b3820280d77004ULL, 0x8b2e01e7c8e57a75ULL, 0x2d342794e886c2e6ULL,
+    0xc302c410cde21461ULL, 0x111f426f1379c274ULL, 0xe0569220abb31588ULL,
+    0x5026d3064d453324ULL, 0xe2076040c343cd8aULL, 0x93efd1e1738021eeULL,
+    0xb680804bed143132ULL, 0x44e361b21986944cULL, 0x44c60170ef5c598cULL,
+    0xf4da475c195c9c94ULL, 0xa3afbb5f72060b1dULL, 0xbc75f410e41c4ffcULL,
+    0xb51c099390520922ULL, 0x902c011f8f8ec368ULL, 0x950b56b3d6f5490aULL,
+    0x3909e0635bf202d0ULL, 0x5744f90206ec10ccULL, 0xdc59fd76317abbc1ULL,
+    0x881c7c67fcbfc4f6ULL, 0x47ca41e7e440d423ULL, 0xeb0c88112048d004ULL,
+    0x51c60e04359aef1aULL, 0x1aa1fe0e957a5554ULL, 0xdd9448db4f5e3104ULL,
+    0xdc01f6dca4bebbdcULL,
 };
 
 const uint64_t RMult[64] = {
-  0xd7445cdec88002c0ULL, 0xd0a505c1f2001722ULL, 0xe065d1c896002182ULL,
-  0x9a8c41e75a000892ULL, 0x8900b10c89002aa8ULL, 0x9b28d1c1d60005a2ULL,
-  0x15d6c88de002d9aULL, 0xb1dbfc802e8016a9ULL, 0x149a1042d9d60029ULL,
-  0xb9c08050599e002fULL, 0x132208c3af300403ULL, 0xc1000ce2e9c50070ULL,
-  0x9d9aa13c99020012ULL, 0xb6b078daf71e0046ULL, 0x9d880182fb6e002eULL,
-  0x52889f467e850037ULL, 0xda6dc008d19a8480ULL, 0x468286034f902420ULL,
-  0x7140ac09dc54c020ULL, 0xd76ffffa39548808ULL, 0xea901c4141500808ULL,
-  0xc91004093f953a02ULL, 0x2882afa8f6bb402ULL, 0xaebe335692442c01ULL,
-  0xe904a22079fb91eULL, 0x13a514851055f606ULL, 0x76c782018c8fe632ULL,
-  0x1dc012a9d116da06ULL, 0x3c9e0037264fffa6ULL, 0x2036002853c6e4a2ULL,
-  0xe3fe08500afb47d4ULL, 0xf38af25c86b025c2ULL, 0xc0800e2182cf9a40ULL,
-  0x72002480d1f60673ULL, 0x2500200bae6e9b53ULL, 0xc60018c1eefca252ULL,
-  0x600590473e3608aULL, 0x46002c4ab3fe51b2ULL, 0xa200011486bcc8d2ULL,
-  0xb680078095784c63ULL, 0x2742002639bf11aeULL, 0xc7d60021a5bdb142ULL,
-  0xc8c04016bb83d820ULL, 0xbd520028123b4842ULL, 0x9d1600344ac2a832ULL,
-  0x6a808005631c8a05ULL, 0x604600a148d5389aULL, 0xe2e40103d40dea65ULL,
-  0x945b5a0087c62a81ULL, 0x12dc200cd82d28eULL, 0x2431c600b5f9ef76ULL,
-  0xfb142a006a9b314aULL, 0x6870e00a1c97d62ULL, 0x2a9db2004a2689a2ULL,
-  0xd3594600caf5d1a2ULL, 0xee0e4900439344a7ULL, 0x89c4d266ca25007aULL,
-  0x3e0013a2743f97e3ULL, 0x180e31a0431378aULL, 0x3a9e465a4d42a512ULL,
-  0x98d0a11a0c0d9cc2ULL, 0x8e711c1aba19b01eULL, 0x8dcdc836dd201142ULL,
-  0x5ac08a4735370479ULL,
+    0xd7445cdec88002c0ULL, 0xd0a505c1f2001722ULL, 0xe065d1c896002182ULL,
+    0x9a8c41e75a000892ULL, 0x8900b10c89002aa8ULL, 0x9b28d1c1d60005a2ULL,
+    0x15d6c88de002d9aULL, 0xb1dbfc802e8016a9ULL, 0x149a1042d9d60029ULL,
+    0xb9c08050599e002fULL, 0x132208c3af300403ULL, 0xc1000ce2e9c50070ULL,
+    0x9d9aa13c99020012ULL, 0xb6b078daf71e0046ULL, 0x9d880182fb6e002eULL,
+    0x52889f467e850037ULL, 0xda6dc008d19a8480ULL, 0x468286034f902420ULL,
+    0x7140ac09dc54c020ULL, 0xd76ffffa39548808ULL, 0xea901c4141500808ULL,
+    0xc91004093f953a02ULL, 0x2882afa8f6bb402ULL, 0xaebe335692442c01ULL,
+    0xe904a22079fb91eULL, 0x13a514851055f606ULL, 0x76c782018c8fe632ULL,
+    0x1dc012a9d116da06ULL, 0x3c9e0037264fffa6ULL, 0x2036002853c6e4a2ULL,
+    0xe3fe08500afb47d4ULL, 0xf38af25c86b025c2ULL, 0xc0800e2182cf9a40ULL,
+    0x72002480d1f60673ULL, 0x2500200bae6e9b53ULL, 0xc60018c1eefca252ULL,
+    0x600590473e3608aULL, 0x46002c4ab3fe51b2ULL, 0xa200011486bcc8d2ULL,
+    0xb680078095784c63ULL, 0x2742002639bf11aeULL, 0xc7d60021a5bdb142ULL,
+    0xc8c04016bb83d820ULL, 0xbd520028123b4842ULL, 0x9d1600344ac2a832ULL,
+    0x6a808005631c8a05ULL, 0x604600a148d5389aULL, 0xe2e40103d40dea65ULL,
+    0x945b5a0087c62a81ULL, 0x12dc200cd82d28eULL, 0x2431c600b5f9ef76ULL,
+    0xfb142a006a9b314aULL, 0x6870e00a1c97d62ULL, 0x2a9db2004a2689a2ULL,
+    0xd3594600caf5d1a2ULL, 0xee0e4900439344a7ULL, 0x89c4d266ca25007aULL,
+    0x3e0013a2743f97e3ULL, 0x180e31a0431378aULL, 0x3a9e465a4d42a512ULL,
+    0x98d0a11a0c0d9cc2ULL, 0x8e711c1aba19b01eULL, 0x8dcdc836dd201142ULL,
+    0x5ac08a4735370479ULL,
 };
 
 const int BShift[64] = {
-  26, 27, 27, 27, 27, 27, 27, 26, 27, 27, 27, 27, 27, 27, 27, 27,
-  27, 27, 25, 25, 25, 25, 27, 27, 27, 27, 25, 23, 23, 25, 27, 27,
-  27, 27, 25, 23, 23, 25, 27, 27, 27, 27, 25, 25, 25, 25, 27, 27,
-  27, 27, 27, 27, 27, 27, 27, 27, 26, 27, 27, 27, 27, 27, 27, 26
+    26, 27, 27, 27, 27, 27, 27, 26, 27, 27, 27, 27, 27, 27, 27, 27,
+    27, 27, 25, 25, 25, 25, 27, 27, 27, 27, 25, 23, 23, 25, 27, 27,
+    27, 27, 25, 23, 23, 25, 27, 27, 27, 27, 25, 25, 25, 25, 27, 27,
+    27, 27, 27, 27, 27, 27, 27, 27, 26, 27, 27, 27, 27, 27, 27, 26
 };
 
 const int RShift[64] = {
-  20, 21, 21, 21, 21, 21, 21, 20, 21, 22, 22, 22, 22, 22, 22, 21,
-  21, 22, 22, 22, 22, 22, 22, 21, 21, 22, 22, 22, 22, 22, 22, 21,
-  21, 22, 22, 22, 22, 22, 22, 21, 21, 22, 22, 22, 22, 22, 22, 21,
-  21, 22, 22, 22, 22, 22, 22, 21, 20, 21, 21, 21, 21, 21, 21, 20
+    20, 21, 21, 21, 21, 21, 21, 20, 21, 22, 22, 22, 22, 22, 22, 21,
+    21, 22, 22, 22, 22, 22, 22, 21, 21, 22, 22, 22, 22, 22, 22, 21,
+    21, 22, 22, 22, 22, 22, 22, 21, 21, 22, 22, 22, 22, 22, 22, 21,
+    21, 22, 22, 22, 22, 22, 22, 21, 20, 21, 21, 21, 21, 21, 21, 20
 };
 
 #endif // defined(IS_64BIT)
 
 const Bitboard LightSquaresBB = 0x55AA55AA55AA55AAULL;
-const Bitboard DarkSquaresBB  = 0xAA55AA55AA55AA55ULL;
+const Bitboard DarkSquaresBB = 0xAA55AA55AA55AA55ULL;
 
-const Bitboard SquaresByColorBB[2] = { DarkSquaresBB, LightSquaresBB };
+const Bitboard SquaresByColorBB[2] = {DarkSquaresBB, LightSquaresBB};
 
 const Bitboard FileBB[8] = {
-  FileABB, FileBBB, FileCBB, FileDBB, FileEBB, FileFBB, FileGBB, FileHBB
+    FileABB, FileBBB, FileCBB, FileDBB, FileEBB, FileFBB, FileGBB, FileHBB
 };
 
 const Bitboard NeighboringFilesBB[8] = {
-  FileBBB, FileABB|FileCBB, FileBBB|FileDBB, FileCBB|FileEBB,
-  FileDBB|FileFBB, FileEBB|FileGBB, FileFBB|FileHBB, FileGBB
+    FileBBB, FileABB | FileCBB, FileBBB | FileDBB, FileCBB | FileEBB,
+    FileDBB | FileFBB, FileEBB | FileGBB, FileFBB | FileHBB, FileGBB
 };
 
 const Bitboard ThisAndNeighboringFilesBB[8] = {
-  FileABB|FileBBB, FileABB|FileBBB|FileCBB,
-  FileBBB|FileCBB|FileDBB, FileCBB|FileDBB|FileEBB,
-  FileDBB|FileEBB|FileFBB, FileEBB|FileFBB|FileGBB,
-  FileFBB|FileGBB|FileHBB, FileGBB|FileHBB
+    FileABB | FileBBB, FileABB | FileBBB | FileCBB,
+    FileBBB | FileCBB | FileDBB, FileCBB | FileDBB | FileEBB,
+    FileDBB | FileEBB | FileFBB, FileEBB | FileFBB | FileGBB,
+    FileFBB | FileGBB | FileHBB, FileGBB | FileHBB
 };
 
 const Bitboard RankBB[8] = {
-  Rank1BB, Rank2BB, Rank3BB, Rank4BB, Rank5BB, Rank6BB, Rank7BB, Rank8BB
+    Rank1BB, Rank2BB, Rank3BB, Rank4BB, Rank5BB, Rank6BB, Rank7BB, Rank8BB
 };
 
 const Bitboard RelativeRankBB[2][8] = {
-  { Rank1BB, Rank2BB, Rank3BB, Rank4BB, Rank5BB, Rank6BB, Rank7BB, Rank8BB },
-  { Rank8BB, Rank7BB, Rank6BB, Rank5BB, Rank4BB, Rank3BB, Rank2BB, Rank1BB }
+    {Rank1BB, Rank2BB, Rank3BB, Rank4BB, Rank5BB, Rank6BB, Rank7BB, Rank8BB},
+    {Rank8BB, Rank7BB, Rank6BB, Rank5BB, Rank4BB, Rank3BB, Rank2BB, Rank1BB}
 };
 
 const Bitboard InFrontBB[2][8] = {
-  { Rank2BB | Rank3BB | Rank4BB | Rank5BB | Rank6BB | Rank7BB | Rank8BB,
-    Rank3BB | Rank4BB | Rank5BB | Rank6BB | Rank7BB | Rank8BB,
-    Rank4BB | Rank5BB | Rank6BB | Rank7BB | Rank8BB,
-    Rank5BB | Rank6BB | Rank7BB | Rank8BB,
-    Rank6BB | Rank7BB | Rank8BB,
-    Rank7BB | Rank8BB,
-    Rank8BB,
-    EmptyBoardBB
-  },
-  { EmptyBoardBB,
-    Rank1BB,
-    Rank2BB | Rank1BB,
-    Rank3BB | Rank2BB | Rank1BB,
-    Rank4BB | Rank3BB | Rank2BB | Rank1BB,
-    Rank5BB | Rank4BB | Rank3BB | Rank2BB | Rank1BB,
-    Rank6BB | Rank5BB | Rank4BB | Rank3BB | Rank2BB | Rank1BB,
-    Rank7BB | Rank6BB | Rank5BB | Rank4BB | Rank3BB | Rank2BB | Rank1BB
-  }
+    {Rank2BB | Rank3BB | Rank4BB | Rank5BB | Rank6BB | Rank7BB | Rank8BB,
+        Rank3BB | Rank4BB | Rank5BB | Rank6BB | Rank7BB | Rank8BB,
+        Rank4BB | Rank5BB | Rank6BB | Rank7BB | Rank8BB,
+        Rank5BB | Rank6BB | Rank7BB | Rank8BB,
+        Rank6BB | Rank7BB | Rank8BB,
+        Rank7BB | Rank8BB,
+        Rank8BB,
+        EmptyBoardBB
+    },
+    {EmptyBoardBB,
+        Rank1BB,
+        Rank2BB | Rank1BB,
+        Rank3BB | Rank2BB | Rank1BB,
+        Rank4BB | Rank3BB | Rank2BB | Rank1BB,
+        Rank5BB | Rank4BB | Rank3BB | Rank2BB | Rank1BB,
+        Rank6BB | Rank5BB | Rank4BB | Rank3BB | Rank2BB | Rank1BB,
+        Rank7BB | Rank6BB | Rank5BB | Rank4BB | Rank3BB | Rank2BB | Rank1BB
+    }
 };
 
 Bitboard RMask[64];
@@ -243,14 +243,20 @@ uint8_t BitCount8Bit[256];
 ////
 
 namespace {
-
+  
   void init_masks();
+  
   void init_attacks();
+  
   void init_between_bitboards();
+  
   void init_pseudo_attacks();
+  
   Bitboard index_to_bitboard(int index, Bitboard mask);
+  
   Bitboard sliding_attacks(int sq, Bitboard block, int dirs, int deltas[][2],
                            int fmin, int fmax, int rmin, int rmax);
+  
   void init_sliding_attacks(Bitboard attacks[], int attackIndex[], Bitboard mask[],
                             const int shift[], const Bitboard mult[], int deltas[][2]);
 }
@@ -264,14 +270,13 @@ namespace {
 /// standard output.  This is sometimes useful for debugging.
 
 void print_bitboard(Bitboard b) {
-
-  for (Rank r = RANK_8; r >= RANK_1; r--)
-  {
-      std::cout << "+---+---+---+---+---+---+---+---+" << std::endl;
-      for (File f = FILE_A; f <= FILE_H; f++)
-          std::cout << "| " << (bit_is_set(b, make_square(f, r))? 'X' : ' ') << ' ';
-
-      std::cout << "|" << std::endl;
+  
+  for (Rank r = RANK_8; r >= RANK_1; r--) {
+    std::cout << "+---+---+---+---+---+---+---+---+" << std::endl;
+    for (File f = FILE_A; f <= FILE_H; f++)
+      std::cout << "| " << (bit_is_set(b, make_square(f, r)) ? 'X' : ' ') << ' ';
+    
+    std::cout << "|" << std::endl;
   }
   std::cout << "+---+---+---+---+---+---+---+---+" << std::endl;
 }
@@ -281,10 +286,16 @@ void print_bitboard(Bitboard b) {
 /// program initialization.
 
 void init_bitboards() {
-
-  int rookDeltas[4][2] = {{0,1},{0,-1},{1,0},{-1,0}};
-  int bishopDeltas[4][2] = {{1,1},{-1,1},{1,-1},{-1,-1}};
-
+  
+  int rookDeltas[4][2] = {{0,  1},
+                          {0,  -1},
+                          {1,  0},
+                          {-1, 0}};
+  int bishopDeltas[4][2] = {{1,  1},
+                            {-1, 1},
+                            {1,  -1},
+                            {-1, -1}};
+  
   init_masks();
   init_attacks();
   init_sliding_attacks(RAttacks, RAttackIndex, RMask, RShift, RMult, rookDeltas);
@@ -322,212 +333,209 @@ Square pop_1st_bit(Bitboard* b) {
 
 static CACHE_LINE_ALIGNMENT
 const int BitTable[64] = {
-  63, 30, 3, 32, 25, 41, 22, 33, 15, 50, 42, 13, 11, 53, 19, 34, 61, 29, 2,
-  51, 21, 43, 45, 10, 18, 47, 1, 54, 9, 57, 0, 35, 62, 31, 40, 4, 49, 5, 52,
-  26, 60, 6, 23, 44, 46, 27, 56, 16, 7, 39, 48, 24, 59, 14, 12, 55, 38, 28,
-  58, 20, 37, 17, 36, 8
+    63, 30, 3, 32, 25, 41, 22, 33, 15, 50, 42, 13, 11, 53, 19, 34, 61, 29, 2,
+    51, 21, 43, 45, 10, 18, 47, 1, 54, 9, 57, 0, 35, 62, 31, 40, 4, 49, 5, 52,
+    26, 60, 6, 23, 44, 46, 27, 56, 16, 7, 39, 48, 24, 59, 14, 12, 55, 38, 28,
+    58, 20, 37, 17, 36, 8
 };
 
 Square first_1(Bitboard b) {
-
+  
   b ^= (b - 1);
-  uint32_t fold = int(b) ^ int(b >> 32);
+  uint32_t fold = int(b) ^int(b >> 32);
   return Square(BitTable[(fold * 0x783a9b23) >> 26]);
 }
 
 // Use type-punning
 union b_union {
-
-    Bitboard b;
-    struct {
+  
+  Bitboard b;
+  struct {
 #if defined (BIGENDIAN)
-        uint32_t h;
-        uint32_t l;
+    uint32_t h;
+    uint32_t l;
 #else
-        uint32_t l;
-        uint32_t h;
+    uint32_t l;
+    uint32_t h;
 #endif
-    } dw;
+  } dw;
 };
 
-Square pop_1st_bit(Bitboard* bb) {
-
-   b_union u;
-   Square ret;
-
-   u.b = *bb;
-
-   if (u.dw.l)
-   {
-       ret = Square(BitTable[((u.dw.l ^ (u.dw.l - 1)) * 0x783a9b23) >> 26]);
-       u.dw.l &= (u.dw.l - 1);
-       *bb = u.b;
-       return ret;
-   }
-   ret = Square(BitTable[((~(u.dw.h ^ (u.dw.h - 1))) * 0x783a9b23) >> 26]);
-   u.dw.h &= (u.dw.h - 1);
-   *bb = u.b;
-   return ret;
+Square pop_1st_bit(Bitboard *bb) {
+  
+  b_union u;
+  Square ret;
+  
+  u.b = *bb;
+  
+  if (u.dw.l) {
+    ret = Square(BitTable[((u.dw.l ^ (u.dw.l - 1)) * 0x783a9b23) >> 26]);
+    u.dw.l &= (u.dw.l - 1);
+    *bb = u.b;
+    return ret;
+  }
+  ret = Square(BitTable[((~(u.dw.h ^ (u.dw.h - 1))) * 0x783a9b23) >> 26]);
+  u.dw.h &= (u.dw.h - 1);
+  *bb = u.b;
+  return ret;
 }
 
 #endif
 
 
 namespace {
-
+  
   // All functions below are used to precompute various bitboards during
   // program initialization.  Some of the functions may be difficult to
   // understand, but they all seem to work correctly, and it should never
   // be necessary to touch any of them.
-
+  
   void init_masks() {
-
+    
     SetMaskBB[SQ_NONE] = 0ULL;
     ClearMaskBB[SQ_NONE] = ~SetMaskBB[SQ_NONE];
-
-    for (Square s = SQ_A1; s <= SQ_H8; s++)
-    {
-        SetMaskBB[s] = (1ULL << s);
-        ClearMaskBB[s] = ~SetMaskBB[s];
+    
+    for (Square s = SQ_A1; s <= SQ_H8; s++) {
+      SetMaskBB[s] = (1ULL << s);
+      ClearMaskBB[s] = ~SetMaskBB[s];
     }
-
+    
     for (Color c = WHITE; c <= BLACK; c++)
-        for (Square s = SQ_A1; s <= SQ_H8; s++)
-        {
-            SquaresInFrontMask[c][s] = in_front_bb(c, s) & file_bb(s);
-            PassedPawnMask[c][s] = in_front_bb(c, s) & this_and_neighboring_files_bb(s);
-            AttackSpanMask[c][s] = in_front_bb(c, s) & neighboring_files_bb(s);
-        }
-
+      for (Square s = SQ_A1; s <= SQ_H8; s++) {
+        SquaresInFrontMask[c][s] = in_front_bb(c, s) & file_bb(s);
+        PassedPawnMask[c][s] = in_front_bb(c, s) & this_and_neighboring_files_bb(s);
+        AttackSpanMask[c][s] = in_front_bb(c, s) & neighboring_files_bb(s);
+      }
+    
     for (Bitboard b = 0; b < 256; b++)
-        BitCount8Bit[b] = (uint8_t)count_1s<CNT32>(b);
+      BitCount8Bit[b] = (uint8_t) count_1s<CNT32>(b);
   }
-
+  
   void init_attacks() {
-
-    const int step[16][8] =  {
-      {0},
-      {7,9,0}, {17,15,10,6,-6,-10,-15,-17}, {9,7,-7,-9,0}, {8,1,-1,-8,0},
-      {9,7,-7,-9,8,1,-1,-8}, {9,7,-7,-9,8,1,-1,-8}, {0}, {0},
-      {-7,-9,0}, {17,15,10,6,-6,-10,-15,-17}, {9,7,-7,-9,0}, {8,1,-1,-8,0},
-      {9,7,-7,-9,8,1,-1,-8}, {9,7,-7,-9,8,1,-1,-8}
+    
+    const int step[16][8] = {
+        {0},
+        {7,  9,  0},
+        {17, 15, 10, 6,  -6, -10, -15, -17},
+        {9,  7,  -7, -9, 0},
+        {8,  1,  -1, -8, 0},
+        {9,  7,  -7, -9, 8,  1,   -1,  -8},
+        {9,  7,  -7, -9, 8,  1,   -1,  -8},
+        {0},
+        {0},
+        {-7, -9, 0},
+        {17, 15, 10, 6,  -6, -10, -15, -17},
+        {9,  7,  -7, -9, 0},
+        {8,  1,  -1, -8, 0},
+        {9,  7,  -7, -9, 8,  1,   -1,  -8},
+        {9,  7,  -7, -9, 8,  1,   -1,  -8}
     };
-
+    
     for (int i = 0; i < 64; i++)
-        for (int j = 0; j <= int(BK); j++)
-        {
-            StepAttackBB[j][i] = EmptyBoardBB;
-            for (int k = 0; k < 8 && step[j][k] != 0; k++)
-            {
-                int l = i + step[j][k];
-                if (l >= 0 && l < 64 && abs((i & 7) - (l & 7)) < 3)
-                    StepAttackBB[j][i] |= (1ULL << l);
-           }
+      for (int j = 0; j <= int(BK); j++) {
+        StepAttackBB[j][i] = EmptyBoardBB;
+        for (int k = 0; k < 8 && step[j][k] != 0; k++) {
+          int l = i + step[j][k];
+          if (l >= 0 && l < 64 && abs((i & 7) - (l & 7)) < 3)
+            StepAttackBB[j][i] |= (1ULL << l);
         }
+      }
   }
-
+  
   Bitboard sliding_attacks(int sq, Bitboard block, int dirs, int deltas[][2],
-                           int fmin=0, int fmax=7, int rmin=0, int rmax=7) {
+                           int fmin = 0, int fmax = 7, int rmin = 0, int rmax = 7) {
     Bitboard result = 0ULL;
     int rk = sq / 8;
     int fl = sq % 8;
-
-    for (int i = 0; i < dirs; i++)
-    {
-        int dx = deltas[i][0];
-        int dy = deltas[i][1];
-        int f = fl + dx;
-        int r = rk + dy;
-
-        while (   (dx == 0 || (f >= fmin && f <= fmax))
-               && (dy == 0 || (r >= rmin && r <= rmax)))
-        {
-            result |= (1ULL << (f + r*8));
-            if (block & (1ULL << (f + r*8)))
-                break;
-
-            f += dx;
-            r += dy;
-        }
+    
+    for (int i = 0; i < dirs; i++) {
+      int dx = deltas[i][0];
+      int dy = deltas[i][1];
+      int f = fl + dx;
+      int r = rk + dy;
+      
+      while ((dx == 0 || (f >= fmin && f <= fmax))
+             && (dy == 0 || (r >= rmin && r <= rmax))) {
+        result |= (1ULL << (f + r * 8));
+        if (block & (1ULL << (f + r * 8)))
+          break;
+        
+        f += dx;
+        r += dy;
+      }
     }
     return result;
   }
-
+  
   void init_between_bitboards() {
-
+    
     Square s1, s2, s3;
     SquareDelta d;
     int f, r;
-
+    
     for (s1 = SQ_A1; s1 <= SQ_H8; s1++)
-        for (s2 = SQ_A1; s2 <= SQ_H8; s2++)
-        {
-            BetweenBB[s1][s2] = EmptyBoardBB;
-
-            if (bit_is_set(QueenPseudoAttacks[s1], s2))
-            {
-                f = file_distance(s1, s2);
-                r = rank_distance(s1, s2);
-
-                d = SquareDelta(s2 - s1) / Max(f, r);
-
-                for (s3 = s1 + d; s3 != s2; s3 += d)
-                    set_bit(&(BetweenBB[s1][s2]), s3);
-            }
+      for (s2 = SQ_A1; s2 <= SQ_H8; s2++) {
+        BetweenBB[s1][s2] = EmptyBoardBB;
+        
+        if (bit_is_set(QueenPseudoAttacks[s1], s2)) {
+          f = file_distance(s1, s2);
+          r = rank_distance(s1, s2);
+          
+          d = SquareDelta(s2 - s1) / Max(f, r);
+          
+          for (s3 = s1 + d; s3 != s2; s3 += d)
+            set_bit(&(BetweenBB[s1][s2]), s3);
+        }
       }
   }
-
+  
   Bitboard index_to_bitboard(int index, Bitboard mask) {
-
+    
     Bitboard result = 0ULL;
     int bits = count_1s<CNT32>(mask);
-
-    for (int i = 0; i < bits; i++)
-    {
-        int j = pop_1st_bit(&mask);
-        if (index & (1 << i))
-            result |= (1ULL << j);
+    
+    for (int i = 0; i < bits; i++) {
+      int j = pop_1st_bit(&mask);
+      if (index & (1 << i))
+        result |= (1ULL << j);
     }
     return result;
   }
-
+  
   void init_sliding_attacks(Bitboard attacks[], int attackIndex[], Bitboard mask[],
                             const int shift[], const Bitboard mult[], int deltas[][2]) {
-
-    for (int i = 0, index = 0; i < 64; i++)
-    {
-        attackIndex[i] = index;
-        mask[i] = sliding_attacks(i, 0, 4, deltas, 1, 6, 1, 6);
+    
+    for (int i = 0, index = 0; i < 64; i++) {
+      attackIndex[i] = index;
+      mask[i] = sliding_attacks(i, 0, 4, deltas, 1, 6, 1, 6);
 
 #if defined(IS_64BIT)
-        int j = (1 << (64 - shift[i]));
+      int j = (1 << (64 - shift[i]));
 #else
-        int j = (1 << (32 - shift[i]));
+      int j = (1 << (32 - shift[i]));
 #endif
-
-        for (int k = 0; k < j; k++)
-        {
+      
+      for (int k = 0; k < j; k++) {
 #if defined(IS_64BIT)
-            Bitboard b = index_to_bitboard(k, mask[i]);
-            attacks[index + ((b * mult[i]) >> shift[i])] = sliding_attacks(i, b, 4, deltas);
+        Bitboard b = index_to_bitboard(k, mask[i]);
+        attacks[index + ((b * mult[i]) >> shift[i])] = sliding_attacks(i, b, 4, deltas);
 #else
-            Bitboard b = index_to_bitboard(k, mask[i]);
-            unsigned v = int(b) * int(mult[i]) ^ int(b >> 32) * int(mult[i] >> 32);
-            attacks[index + (v >> shift[i])] = sliding_attacks(i, b, 4, deltas);
+        Bitboard b = index_to_bitboard(k, mask[i]);
+        unsigned v = int(b) * int(mult[i]) ^int(b >> 32) * int(mult[i] >> 32);
+        attacks[index + (v >> shift[i])] = sliding_attacks(i, b, 4, deltas);
 #endif
-        }
-        index += j;
+      }
+      index += j;
     }
   }
-
+  
   void init_pseudo_attacks() {
-
-    for (Square s = SQ_A1; s <= SQ_H8; s++)
-    {
-        BishopPseudoAttacks[s] = bishop_attacks_bb(s, EmptyBoardBB);
-        RookPseudoAttacks[s]   = rook_attacks_bb(s, EmptyBoardBB);
-        QueenPseudoAttacks[s]  = queen_attacks_bb(s, EmptyBoardBB);
+    
+    for (Square s = SQ_A1; s <= SQ_H8; s++) {
+      BishopPseudoAttacks[s] = bishop_attacks_bb(s, EmptyBoardBB);
+      RookPseudoAttacks[s] = rook_attacks_bb(s, EmptyBoardBB);
+      QueenPseudoAttacks[s] = queen_attacks_bb(s, EmptyBoardBB);
     }
   }
-
+  
 }

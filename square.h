@@ -57,9 +57,9 @@ enum Rank {
 };
 
 enum SquareDelta {
-
+  
   DELTA_N = 8, DELTA_E = 1, DELTA_S = -8, DELTA_W = -1, DELTA_NONE = 0,
-
+  
   DELTA_NN = DELTA_N + DELTA_N,
   DELTA_NE = DELTA_N + DELTA_E,
   DELTA_SE = DELTA_S + DELTA_E,
@@ -69,8 +69,11 @@ enum SquareDelta {
 };
 
 ENABLE_OPERATORS_ON(Square)
+
 ENABLE_OPERATORS_ON(File)
+
 ENABLE_OPERATORS_ON(Rank)
+
 ENABLE_OPERATORS_ON(SquareDelta)
 
 
@@ -79,16 +82,19 @@ ENABLE_OPERATORS_ON(SquareDelta)
 ////
 
 const int FlipMask = 56;
-const int FlopMask =  7;
+const int FlopMask = 7;
 
 ////
 //// Inline functions
 ////
 
-inline Square operator+ (Square x, SquareDelta i) { return x + Square(i); }
-inline void operator+= (Square& x, SquareDelta i) { x = x + Square(i); }
-inline Square operator- (Square x, SquareDelta i) { return x - Square(i); }
-inline void operator-= (Square& x, SquareDelta i) { x = x - Square(i); }
+inline Square operator+(Square x, SquareDelta i) { return x + Square(i); }
+
+inline void operator+=(Square &x, SquareDelta i) { x = x + Square(i); }
+
+inline Square operator-(Square x, SquareDelta i) { return x - Square(i); }
+
+inline void operator-=(Square &x, SquareDelta i) { x = x - Square(i); }
 
 inline Square make_square(File f, Rank r) {
   return Square(int(f) | (int(r) << 3));
@@ -123,7 +129,7 @@ inline SquareColor square_color(Square s) {
 }
 
 inline bool same_color_squares(Square s1, Square s2) {
-  int s = int(s1) ^ int(s2);
+  int s = int(s1) ^int(s2);
   return (((s >> 3) ^ s) & 1) == 0;
 }
 
@@ -164,8 +170,8 @@ inline char rank_to_char(Rank r) {
 }
 
 inline const std::string square_to_string(Square s) {
-  return  std::string(1, file_to_char(square_file(s)))
-        + std::string(1, rank_to_char(square_rank(s)));
+  return std::string(1, file_to_char(square_file(s)))
+         + std::string(1, rank_to_char(square_rank(s)));
 }
 
 inline bool file_is_ok(File f) {
